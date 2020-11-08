@@ -8,6 +8,18 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <%        
+        String color=request.getParameter("color");
+        String [] colors=new String[]{"red", "green", "black", "purple", "white", "blue"};
+        if(color==null){
+            int index=(int)Math.floor(Math.random()*colors.length);
+            color=colors[index];
+        }
+    %>
+    <body bgcolor="<%=color%>">
+        <form>
+            Color: <input type="color" name="color"/>
+            <input type="submit">
+        </form>
     </body>
 </html>
